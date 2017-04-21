@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- echarts.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.1.10/echarts.min.js"></script>
+    <!--script src="E:\work\TestTools\ccEharts\echarts\echarts.min.js"></script>
+</head>
+<body>
+    <!-- Dom -->
+    <div id="main" style="width: 80vw; height: 100vh;"></div>
+    <script type="text/javascript">
+        //
+        var myChart = echarts.init(document.getElementById('main'));
+
+        //
+        var option = {{ opt }};
+
+        //
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

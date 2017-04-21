@@ -1,0 +1,12 @@
+h1  {
+    font-size: 18px;
+    color: deepskyblue;
+}
+
+input[type="submit"] {
+    background-color: lightseagreen;
+    color: white;
+    font-size: 20px;
+    height: 30px;
+}
+

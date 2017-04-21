@@ -1,0 +1,65 @@
+<!doctype html>
+<head>
+    <title>CTest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    </style>
+</head>
+<a href="recycled/index">回收站</a>
+<br>
+<table>
+    <form method="post" enctype="multipart/form-data">
+        <TR>
+            <TD>
+                <input type="file" name="file">
+            </TD>
+            <TD>
+                <h1><input type="submit" name="upload_files" value="上传"/>上传文件需小于16M，且文件名只能为英文或数字</h1>
+            </TD>
+        </TR>
+    </form>
+</table>
+<br>
+<form method="post" target="_blank">
+    <table>
+        <TR>
+            <TD style="float:left; width: 30%; display:inline-table">
+                <input type="submit" name="draw_server_performance" value="服务端性能曲线图">
+            </TD>
+            <TD style="float:left; width: 30%; display:inline-table">
+                <input type="submit" name="draw_client_x9_loadscenes" value="客户端场景加载时间图">
+            </TD>
+            <TD style="float:left; width: 30%; display:inline-table">
+                <input type="submit" name="draw_client_performance" value="客户端性能曲线图">
+            </TD>
+        </TR>
+    </table>
+    <table>
+        <TR style="color:red">
+            <TD style="width: 5%">选中</TD>
+            <TD style="width: 55%">文件名</TD>
+            <TD style="width: 20%">上传时间</TD>
+            <TD style="width: 10%">查看</TD>
+            <TD style="width: 5%">操作</TD>
+            <TD style="width: 5%"></TD>
+        </TR>
+        {% if folder %}
+            {% for item in folder %}
+                <TR>
+                    <TD><input type="checkbox" id={{ item }} name={{ item }} value={{ item }}></TD>
+                    <TD><label for={{ item }}>{{ cut_filename(item) }}</label></TD>
+                    <TD>{{ upload_time(item) }}</TD>
+                    <TD><a href="{{ item }}" target="_blank">源文件</a></TD>
+                    <TD><a href="download_file/{{ cut_filename(item) }}">下载</a></TD>
+                    <TD><a href="recycle_file/{{ cut_filename(item) }}">删除</a></TD>
+            {% endfor %}
+        {% else %}
+            <TD><h1>没有文件</h1></TD>
+        {% endif %}
+                </TR>
+    </table>
+</form>
+<br>
+
+
+

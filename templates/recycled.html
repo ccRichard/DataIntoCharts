@@ -1,0 +1,39 @@
+<!doctype html>
+<head>
+    <title>CTest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    </style>
+</head>
+<a href="/">首页</a>
+<br>
+<br>
+<table>
+    <TR style="color:red">
+        <TD style="width: 30%">文件名</TD>
+        <TD style="width: 30%">上传时间</TD>
+        <TD style="width: 15%">查看</TD>
+        <TD style="width: 10%">操作</TD>
+        <TD style="width: 10%"></TD>
+    </TR>
+    <form method="post" target="_blank">
+        {% if folder %}
+            {% for item in folder %}
+                <TR>
+                <TD>{{ cut_filename(item) }}</TD>
+                <TD>{{ upload_time(item) }}</TD>
+                <TD><a href="{{ cut_filename(item) }}">源文件</a></TD>
+                <TD><a href="{{ url_for('resotre_file', filename=cut_filename(item)) }}">还原</a></TD>
+                <TD><a href="{{ url_for('delete_file', filename=cut_filename(item)) }}">删除</a></TD>
+                <!--<TD><input type="submit" name="del" value="删除"></TD>-->
+            {% endfor %}
+        {% else %}
+            <TD><h1>没有文件</h1></TD>
+        {% endif %}
+                </TR>
+    </form>
+</table>
+<br>
+
+
+
