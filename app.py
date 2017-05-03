@@ -189,5 +189,5 @@ def allowed_file(filename):
 
 
 if __name__ == '__main__':
-    app.run('100.84.47.220')
+    app.run('127.0.0.1')
 
